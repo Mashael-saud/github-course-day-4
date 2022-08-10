@@ -1,15 +1,15 @@
 name: PR Comment 
 
 on:
- pull_request:
-   branches: ["*"]
+  pull_request:
+    branches: ["*"]
 
 jobs:
   Comment:
-   runs-on: ubuntu-latest
-   steps:
+    runs-on: ubuntu-latest
+    steps:
     - env:
-       PR_NUMBER: ${{ github.event.pull_request.number }}
-       GIT_TOKEN: ${{ secrests.GITHUB_TOKEN }}
+        PR_NUMBER: ${{ github.event.pull_request.number }}
+        GIT_TOKEN: ${{ secrests.GITHUB_TOKEN }}
       run: |
-       gh pr comment $PR_NUMBER --body "Hi from Github CLI" --repo $GITHUB_REPOSITORY 
+          gh pr comment $PR_NUMBER --body "Hi from Github CLI" --repo $GITHUB_REPOSITORY 
